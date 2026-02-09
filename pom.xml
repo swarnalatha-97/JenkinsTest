@@ -45,19 +45,18 @@
 					</cloudHubDeployment> -->
 				    <cloudhub2Deployment>
 				        <uri>https://anypoint.mulesoft.com</uri>
-				        <provider>MC</provider> 
-						<environment>${env}</environment>
-				       	<target>Cloudhub-US-East-2</target>
-						<muleVersion>4.4.0</muleVersion>
+				        <provider>MC</provider>
+				        <environment>${env}</environment>
+				        <target>Cloudhub-US-East-2</target> 
+				        <muleVersion>4.4.0</muleVersion>
 				        <connectedAppClientId>${anypoint.clientId}</connectedAppClientId>
 				        <connectedAppClientSecret>${anypoint.clientSecret}</connectedAppClientSecret>
 				        <connectedAppGrantType>client_credentials</connectedAppGrantType>
 				        <applicationName>${appname}</applicationName>
-				        <replicas>1</replicas>
-				        <vCores>0.1</vCores> 
-						<businessGroup>${business}</businessGroup>
-				        <integrityControl>false</integrityControl>
-				    </cloudhub2Deployment>
+				        <businessGroup>${business}</businessGroup>
+				        <replicas>${workers}</replicas>
+				        <vCores>0.1</vCores>
+				        </cloudhub2Deployment>
 			    </configuration>
 		</plugin>	
 		</plugins>
