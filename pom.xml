@@ -30,7 +30,7 @@
 			    <version>4.3.0</version>
 				<extensions>true</extensions>
 			    <configuration>
-			        <cloudHubDeployment>
+			        <!-- <cloudHubDeployment>
 					    <uri>https://anypoint.mulesoft.com</uri>
 					    <muleVersion>4.4.0</muleVersion>
 					    <connectedAppClientId>${anypoint.clientId}</connectedAppClientId>
@@ -42,7 +42,22 @@
 					    <workers>${workers}</workers>
 					    <workerType>${vCore}</workerType>
 					    <businessGroup>${business}</businessGroup>
-					</cloudHubDeployment>
+					</cloudHubDeployment> -->
+				    <cloudhub2Deployment>
+				        <uri>https://anypoint.mulesoft.com</uri>
+				        <provider>MC</provider> 
+						<environment>${env}</environment>
+				       	<target>Cloudhub-US-East-2</target>
+						<muleVersion>4.4.0</muleVersion>
+				        <connectedAppClientId>${anypoint.clientId}</connectedAppClientId>
+				        <connectedAppClientSecret>${anypoint.clientSecret}</connectedAppClientSecret>
+				        <connectedAppGrantType>client_credentials</connectedAppGrantType>
+				        <applicationName>${appname}</applicationName>
+				        <replicas>1</replicas>
+				        <vCores>0.1</vCores> 
+						<businessGroup>${business}</businessGroup>
+				        <integrityControl>false</integrityControl>
+				    </cloudhub2Deployment>
 			    </configuration>
 		</plugin>	
 		</plugins>
