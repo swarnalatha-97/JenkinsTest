@@ -44,9 +44,7 @@
 			            </goals>
 			        </execution>
 			    </executions>
-			    <configuration>
-			        <serverId>anypoint-exchange-v3</serverId> 
-			    </configuration>
+			    
 			</plugin>
 			<plugin>
 			    <groupId>org.mule.tools.maven</groupId>
@@ -128,9 +126,7 @@
 	</pluginRepositories>
 <distributionManagement>
     <repository>
-        <id>anypoint-exchange-v3</id>
-        <name>Anypoint Exchange</name>
-        <url>https://maven.anypoint.mulesoft.com/api/v3/organizations/fbfb1dd9-f5ef-4a5b-96bb-26d6c7d9aa43/maven</url>
+        <id>anypoint-exchange-v3</id> <url>https://maven.anypoint.mulesoft.com/api/v3/organizations/fbfb1dd9-f5ef-4a5b-96bb-26d6c7d9aa43/maven</url>
         <layout>default</layout>
     </repository>
 </distributionManagement>
