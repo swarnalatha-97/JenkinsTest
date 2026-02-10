@@ -43,20 +43,20 @@
 					    <workerType>${vCore}</workerType>
 					    <businessGroup>${business}</businessGroup>
 					</cloudHubDeployment> -->
-				    <cloudhub2Deployment>
-				        <uri>https://anypoint.mulesoft.com</uri>
-				        <provider>MC</provider>
-				        <environment>${env}</environment>
-				        <target>Cloudhub-US-East-2</target> 
-				        <muleVersion>4.4.0</muleVersion>
-				        <connectedAppClientId>${anypoint.clientId}</connectedAppClientId>
-				        <connectedAppClientSecret>${anypoint.clientSecret}</connectedAppClientSecret>
-				        <connectedAppGrantType>client_credentials</connectedAppGrantType>
-				        <applicationName>${appname}</applicationName>
-				        <businessGroup>${business}</businessGroup>
-				        <replicas>${workers}</replicas>
-				        <vCores>0.1</vCores>
-				        </cloudhub2Deployment>
+					<cloudhub2Deployment>
+					    <uri>https://anypoint.mulesoft.com</uri>
+					    <provider>MC</provider>
+					    <environment>${env}</environment>
+					    <target>Cloudhub-US-East-2</target>
+					    <muleVersion>4.10.3</muleVersion> 
+					    <connectedAppClientId>${anypoint.clientId}</connectedAppClientId>
+					    <connectedAppClientSecret>${anypoint.clientSecret}</connectedAppClientSecret>
+					    <connectedAppGrantType>client_credentials</connectedAppGrantType>
+					    <applicationName>${appname}</applicationName>
+					    <businessGroup>${business}</businessGroup>
+					    <replicas>${workers}</replicas>
+					    <vCores>0.1</vCores>
+					</cloudhub2Deployment>
 			    </configuration>
 		</plugin>	
 		</plugins>
