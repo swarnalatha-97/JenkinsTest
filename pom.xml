@@ -51,7 +51,7 @@
                         <provider>MC</provider>
                         <environment>${env}</environment>
                         <target>Cloudhub-US-East-2</target>
-                        <muleVersion>4.4.0</muleVersion> 
+                        <muleVersion>4.10.3</muleVersion> 
                         <connectedAppClientId>${anypoint.clientId}</connectedAppClientId>
                         <connectedAppClientSecret>${anypoint.clientSecret}</connectedAppClientSecret>
                         <connectedAppGrantType>client_credentials</connectedAppGrantType>
