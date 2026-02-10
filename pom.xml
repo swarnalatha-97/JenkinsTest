@@ -44,6 +44,9 @@
 			            </goals>
 			        </execution>
 			    </executions>
+			    <configuration>
+			        <serverId>anypoint-exchange-v3</serverId> 
+			    </configuration>
 			</plugin>
 			<plugin>
 			    <groupId>org.mule.tools.maven</groupId>
