@@ -4,7 +4,7 @@
 
 	<groupId>fbfb1dd9-f5ef-4a5b-96bb-26d6c7d9aa43</groupId>
 	<artifactId>JenkinsTest</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>mule-application</packaging>
 
 	<name>JenkinsTest</name>
@@ -13,7 +13,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<muleVersion>${app.runtime}</muleVersion>
+		<muleVersion>4.10.3</muleVersion>
 		<mule.maven.plugin.version>4.3.0</mule.maven.plugin.version>
 	</properties>
 
@@ -23,6 +23,27 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
 				<version>3.2.0</version>
+			</plugin>
+			<plugin>
+			    <groupId>org.mule.tools.maven</groupId>
+			    <artifactId>exchange-mule-maven-plugin</artifactId>
+			    <version>0.0.23</version>
+			    <executions>
+			        <execution>
+			            <id>validate</id>
+			            <phase>validate</phase>
+			            <goals>
+			                <goal>exchange-pre-deploy</goal>
+			            </goals>
+			        </execution>
+			        <execution>
+			            <id>deploy</id>
+			            <phase>deploy</phase>
+			            <goals>
+			                <goal>exchange-deploy</goal>
+			            </goals>
+			        </execution>
+			    </executions>
 			</plugin>
 			<plugin>
 			    <groupId>org.mule.tools.maven</groupId>
@@ -61,10 +82,6 @@
 		</plugin>	
 		</plugins>
 	</build>
-
-
-
-
 	<dependencies>
 		<dependency>
 			<groupId>org.mule.connectors</groupId>
