@@ -13,7 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <mule.maven.plugin.version>4.3.0</mule.maven.plugin.version>
-        <exchange.mule.maven.plugin.version>0.0.26</exchange.mule.maven.plugin.version>
+        <exchange.mule.maven.plugin.version>0.0.23</exchange.mule.maven.plugin.version>
     </properties>
 
     <build>
@@ -90,6 +90,12 @@
             <id>mulesoft-releases</id>
             <name>MuleSoft Releases Repository</name>
             <url>https://repository.mulesoft.org/releases/</url>
+            <layout>default</layout>
+        </pluginRepository>
+        <pluginRepository>
+            <id>mule-public</id>
+            <name>MuleSoft Public Repository</name>
+            <url>https://repository.mulesoft.org/public/</url>
             <layout>default</layout>
         </pluginRepository>
     </pluginRepositories>
