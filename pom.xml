@@ -4,7 +4,7 @@
 
     <groupId>fbfb1dd9-f5ef-4a5b-96bb-26d6c7d9aa43</groupId>
     <artifactId>JenkinsTest</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <packaging>mule-application</packaging>
 
     <name>JenkinsTest</name>
