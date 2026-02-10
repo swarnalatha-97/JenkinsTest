@@ -4,7 +4,7 @@
 
     <groupId>fbfb1dd9-f5ef-4a5b-96bb-26d6c7d9aa43</groupId>
     <artifactId>JenkinsTest</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>mule-application</packaging>
 
     <name>JenkinsTest</name>
@@ -12,8 +12,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <mule.maven.plugin.version>4.3.0</mule.maven.plugin.version>
-        <exchange.mule.maven.plugin.version>0.0.23</exchange.mule.maven.plugin.version>
+        <mule.maven.plugin.version>4.0.0</mule.maven.plugin.version>
+        <app.runtime>4.4.0</app.runtime>
     </properties>
 
     <build>
@@ -23,54 +23,53 @@
                 <artifactId>maven-clean-plugin</artifactId>
                 <version>3.2.0</version>
             </plugin>
-
-            <plugin>
-                <groupId>org.mule.tools.maven</groupId>
-                <artifactId>exchange-mule-maven-plugin</artifactId>
-                <version>${exchange.mule.maven.plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>deploy</id>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>exchange-deploy</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <inherited>false</inherited>
-            </plugin>
-
             <plugin>
                 <groupId>org.mule.tools.maven</groupId>
                 <artifactId>mule-maven-plugin</artifactId>
-                <version>4.3.0</version>
+                <version>${mule.maven.plugin.version}</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <cloudhub2Deployment>
-                        <uri>https://anypoint.mulesoft.com</uri>
-                        <provider>MC</provider>
-                        <environment>${env}</environment>
-            
-                        <!-- MUST match Runtime Manager target name exactly -->
-                        <target>Cloudhub-US-East-2</target>
-            
-                        <!-- MUST match Edge runtime -->
-                        <muleVersion>4.10.3:2e</muleVersion>
-            
-                        <connectedAppClientId>${anypoint.clientId}</connectedAppClientId>
-                        <connectedAppClientSecret>${anypoint.clientSecret}</connectedAppClientSecret>
-                        <connectedAppGrantType>client_credentials</connectedAppGrantType>
-            
-                        <applicationName>${appname}</applicationName>
-                        <businessGroup>${business}</businessGroup>
-            
-                        <replicas>${workers}</replicas>
-                        <vCores>0.1</vCores>
+                     <cloudhub2Deployment>
+                          <uri>https://anypoint.mulesoft.com</uri>
+                          <provider>MC</provider>
+                          <environment>Sandbox</environment>
+                          <target>Cloudhub-US-East-2</target>
+                          <muleVersion>${app.runtime}</muleVersion>
+                          <server>anypoint-exchange-v3</server>
+                         <applicationName>jenkins-test-api</applicationName>
+                          <replicas>1</replicas>
+                          <vCores>0.1</vCores>
+                          <deploymentSettings>
+                            <http>
+                              <inbound> 
+                                <forwardSslSession>false</forwardSslSession>
+                                <lastMileSecurity>false</lastMileSecurity>
+                              </inbound>
+                            </http>
+                          </deploymentSettings>
                     </cloudhub2Deployment>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
+
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.mule.connectors</groupId>
+            <artifactId>mule-http-connector</artifactId>
+            <version>1.10.3</version>
+            <classifier>mule-plugin</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.mule.connectors</groupId>
+            <artifactId>mule-sockets-connector</artifactId>
+            <version>1.2.5</version>
+            <classifier>mule-plugin</classifier>
+        </dependency>
+    </dependencies>
 
     <repositories>
         <repository>
@@ -91,23 +90,20 @@
         <pluginRepository>
             <id>mulesoft-releases</id>
             <name>MuleSoft Releases Repository</name>
+            <layout>default</layout>
             <url>https://repository.mulesoft.org/releases/</url>
-            <layout>default</layout>
-        </pluginRepository>
-        <pluginRepository>
-            <id>mule-public</id>
-            <name>MuleSoft Public Repository</name>
-            <url>https://repository.mulesoft.org/public/</url>
-            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </pluginRepository>
     </pluginRepositories>
+     <distributionManagement>
+    <repository>
+      <id>anypoint-exchange-v3</id>
+      <name>Corporate Repository</name>
+      <url>https://maven.anypoint.mulesoft.com/api/v3/organizations/${groupId}/maven</url>
+      <layout>default</layout>
+    </repository>
+  </distributionManagement>
 
-    <distributionManagement>
-        <repository>
-            <id>anypoint-exchange-v3</id>
-            <name>Anypoint Exchange</name>
-            <url>https://maven.anypoint.mulesoft.com/api/v3/organizations/fbfb1dd9-f5ef-4a5b-96bb-26d6c7d9aa43/maven</url>
-            <layout>default</layout>
-        </repository>
-    </distributionManagement>
 </project>
