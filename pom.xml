@@ -43,20 +43,27 @@
             <plugin>
                 <groupId>org.mule.tools.maven</groupId>
                 <artifactId>mule-maven-plugin</artifactId>
-                <version>${mule.maven.plugin.version}</version>
+                <version>4.3.0</version>
                 <extensions>true</extensions>
                 <configuration>
                     <cloudhub2Deployment>
                         <uri>https://anypoint.mulesoft.com</uri>
                         <provider>MC</provider>
                         <environment>${env}</environment>
-                        <target>Cloudhub-US-East-2</target>
-                        <muleVersion>4.10.3</muleVersion> 
+            
+                        <!-- MUST match Runtime Manager target name exactly -->
+                        <target>Shared Space - US East (Ohio)</target>
+            
+                        <!-- MUST match Edge runtime -->
+                        <muleVersion>4.10.3:2e</muleVersion>
+            
                         <connectedAppClientId>${anypoint.clientId}</connectedAppClientId>
                         <connectedAppClientSecret>${anypoint.clientSecret}</connectedAppClientSecret>
                         <connectedAppGrantType>client_credentials</connectedAppGrantType>
+            
                         <applicationName>${appname}</applicationName>
                         <businessGroup>${business}</businessGroup>
+            
                         <replicas>${workers}</replicas>
                         <vCores>0.1</vCores>
                     </cloudhub2Deployment>
