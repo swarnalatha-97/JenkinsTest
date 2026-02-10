@@ -52,7 +52,7 @@
                         <environment>${env}</environment>
             
                         <!-- MUST match Runtime Manager target name exactly -->
-                        <target>Shared Space - US East (Ohio)</target>
+                        <target>Cloudhub-US-East-2</target>
             
                         <!-- MUST match Edge runtime -->
                         <muleVersion>4.10.3:2e</muleVersion>
